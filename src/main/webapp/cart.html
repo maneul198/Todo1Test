@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="cart">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Cart</title>
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="view/cart.js"></script>
+    <style>
+        a {
+            cursor: pointer;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="ItemCtrl">
+    <div ng-repeat="item in items">
+        <a>{{item.id}} {{item.publishingHouse}} {{item.description}}</a>
+    </div>
+</div>
+</body>
+</html>

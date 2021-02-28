@@ -30,10 +30,10 @@
         </tr>
     </table>
     <br/> <br/>
-    <a ng-click="getToy(toy.id)">Get Toy</a>
-    <a ng-click="updateToy(toy.id,toy.name,toy.description)">Update Toy</a>
-    <a ng-click="addToy(toy.name,toy.description)">Add Toy</a>
-    <a ng-click="deleteToy(toy.id)">Delete Toy</a>
+    <button ng-click="getToy(toy.id)">Get Toy</button>
+    <button ng-click="updateToy(toy.id,toy.name,toy.description)">Update Toy</button>
+    <button ng-click="addToy(toy.name,toy.description)">Add Toy</button>
+    <button ng-click="deleteToy(toy.id)">Delete Toy</button>
 
     <br/> <br/>
     <p style="color: green">{{message}}</p>
@@ -42,10 +42,10 @@
 
     <br/>
     <br/>
-    <a ng-click="getAllToys()">Get all Toys</a><br/>
+    <button ng-click="getAllToys()">Get all Toys</button><br/>
     <br/> <br/>
     <div ng-repeat="toy in toys">
-        {{toy.name}} {{toy.description}}
+        {{toy.publishingHouse}} {{toy.description}}
     </div>
 </div>
 </body>

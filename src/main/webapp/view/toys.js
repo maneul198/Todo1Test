@@ -92,7 +92,7 @@ toys.controller('ToyCRUDCtrl', ['$scope', 'ToyCRUDService',
         };
         $scope.init = function(){
             $scope.getTotalToys();
-        }
+        };
         $scope.init();
     }
 ]);
