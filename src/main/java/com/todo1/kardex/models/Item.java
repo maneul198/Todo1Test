@@ -6,13 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public abstract class Article {
+public abstract class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String description;
-    private Name n;
+    private PublishingHouse publishingHouse;
 
     public long getId() {
         return id;
@@ -28,5 +28,13 @@ public abstract class Article {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public PublishingHouse getPublishingHouse() {
+        return publishingHouse;
+    }
+
+    public void setPublishingHouse(PublishingHouse publishingHouse) {
+        this.publishingHouse = publishingHouse;
     }
 }

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="toys">
 <head>
     <meta charset="ISO-8859-1">
     <title>Toys CRUD</title>
     <script
             src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="view/app.js"></script>
+    <script src="view/toys.js"></script>
     <style>
         a {
             cursor: pointer;
@@ -21,8 +21,8 @@
             <td><input type="text" id="id" ng-model="toy.id"/></td>
         </tr>
         <tr>
-            <td width="100">Name:</td>
-            <td><input type="text" id="name" ng-model="toy.name"/></td>
+            <td width="100">Publishing House:</td>
+            <td><input type="text" id="publishingHouse" ng-model="toy.publishingHouse"/></td>
         </tr>
         <tr>
             <td width="100">Description:</td>
@@ -34,7 +34,6 @@
     <a ng-click="updateToy(toy.id,toy.name,toy.description)">Update Toy</a>
     <a ng-click="addToy(toy.name,toy.description)">Add Toy</a>
     <a ng-click="deleteToy(toy.id)">Delete Toy</a>
-    <a ng-click="getTotalToys()">Get Total Toy</a>
 
     <br/> <br/>
     <p style="color: green">{{message}}</p>

@@ -1,6 +1,6 @@
-var app = angular.module('app', []);
+var toys = angular.module('toys', []);
 
-app.controller('ToyCRUDCtrl', ['$scope', 'ToyCRUDService',
+toys.controller('ToyCRUDCtrl', ['$scope', 'ToyCRUDService',
     function ($scope, ToyCRUDService) {
 
         $scope.getToy = function () {
@@ -23,11 +23,12 @@ app.controller('ToyCRUDCtrl', ['$scope', 'ToyCRUDService',
                     });
         }
         $scope.addToy = function () {
-            if ($scope.toy != null && $scope.toy.name) {
-                ToyCRUDService.addToy($scope.toy.name, $scope.toy.description)
+            if ($scope.toy != null && $scope.toy.publishingHouse) {
+                ToyCRUDService.addToy($scope.toy.publishingHouse, $scope.toy.description)
                     .then(function success(response) {
                             $scope.message = 'Toy added!';
                             $scope.errorMessage = '';
+                            $scope.getTotalToys();
                         },
                         function error(response) {
                             $scope.errorMessage = 'Error adding toy!';
@@ -57,6 +58,7 @@ app.controller('ToyCRUDCtrl', ['$scope', 'ToyCRUDService',
                         $scope.message = 'Toy deleted!';
                         $scope.toy = null;
                         $scope.errorMessage = '';
+                        $scope.getTotalToys();
                     },
                     function error(response) {
                         $scope.errorMessage = 'Error deleting toy!';
@@ -79,7 +81,6 @@ app.controller('ToyCRUDCtrl', ['$scope', 'ToyCRUDService',
             ToyCRUDService.getAllToys()
                 .then(function success(response) {
                     $scope.toysNumber = response.data._embedded.toys.length
-                    //$scope.toysNumer = 'Total toys: ';
                     $scope.message = '';
                     $scope.errorMessage = '';
                 },
@@ -97,7 +98,7 @@ app.controller('ToyCRUDCtrl', ['$scope', 'ToyCRUDService',
 ]);
 
 
-app.service('ToyCRUDService', ['$http', function ($http) {
+toys.service('ToyCRUDService', ['$http', function ($http) {
 
     this.getToy = function getToy(toyId) {
         return $http({
@@ -106,13 +107,13 @@ app.service('ToyCRUDService', ['$http', function ($http) {
         });
     }
 
-    this.addToy = function addToy(name, description) {
+    this.addToy = function addToy(publishingHouse, description) {
         return $http({
             method: 'POST',
             url: 'toys',
             data: {
                 description: description,
-                name: name
+                publishingHouse: publishingHouse
             }
         });
     }
