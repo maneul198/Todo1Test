@@ -20,7 +20,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     private static final String LOCATION_URI = "/ws";
     private static final String PORT_TYPE_NAME = "EmployeesPort";
     private static final String URL_MAPPINGS = LOCATION_URI + "/*";
-    private static final String XSD_RESOURCE = LOCATION_URI + "employees.xsd";
+    private static final String XSD_RESOURCE = "employees.xsd";
 
     @Bean
     public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) {

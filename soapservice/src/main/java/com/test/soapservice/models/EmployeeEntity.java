@@ -1,20 +1,16 @@
 package com.test.soapservice.models;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
 public class EmployeeEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private String documentNumber;
     private String name;
     private String surname;
     private String documentType;
-    private String documentNumber;
     private Date birthDay;
     private Date hireDay;
     private String role;
@@ -84,14 +80,6 @@ public class EmployeeEntity {
 
     public void setSalary(String salary) {
         this.salary = salary;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getBirthTime() {
