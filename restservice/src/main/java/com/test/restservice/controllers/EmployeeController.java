@@ -1,6 +1,6 @@
 package com.test.restservice.controllers;
 
-import com.test.restservice.clients.EmployeeClient;
+import Util.Util;
 import com.test.restservice.models.Employee;
 import com.test.restservice.services.EmployeeService;
 import com.test.soap.wsdl.SaveEmployeeResponse;
@@ -13,13 +13,17 @@ import javax.validation.constraints.NotBlank;
 
 @RestController
 @Validated
-public class Controller {
+public class EmployeeController {
 
-    @Autowired
-    private EmployeeClient employeeClient;
+    private static final String OK = "ok";
+    private static final int AGE = 18; //21
 
-    @Autowired
     private EmployeeService employeeService;
+
+    @Autowired
+    EmployeeController(EmployeeService employeeService){
+        this.employeeService = employeeService;
+    }
 
     @GetMapping("/employee")
     public @ResponseBody
@@ -34,13 +38,15 @@ public class Controller {
             @RequestParam(name = "hireday") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String hireDay
     ) throws Exception {
 
-        Employee employee = employeeService.buildEmployee(name, surname, documentType, documentNumber, role, salary,
-                birthDay, hireDay);
+        Employee employee = Util.buildEmployee(name, surname, documentType, documentNumber, role,
+                salary, birthDay, hireDay);
 
-        SaveEmployeeResponse r = employeeClient.saveEmployee(employee);
-        if (!r.getStatus().equals("ok") || employeeService.getAge(birthDay) < 18) {
+        SaveEmployeeResponse r = employeeService.saveEmployee(employee);
+
+        if (!r.getStatus().equals(OK) || Util.getAge(birthDay) < AGE) {
             throw new Exception();
         }
+
         return employee;
     }
 }

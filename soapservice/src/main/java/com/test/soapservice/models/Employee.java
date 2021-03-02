@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class EmployeeEntity {
+public class Employee {
     @Id
     private String documentNumber;
     private String name;

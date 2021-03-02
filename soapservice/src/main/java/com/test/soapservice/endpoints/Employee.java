@@ -19,13 +19,14 @@ public class Employee {
     private EmployeeService employeeService;
 
     @Autowired
-    Employee(EmployeeService employeeService){
+    Employee(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = LOCAL_PART)
     @ResponsePayload
-    public SaveEmployeeResponse getCountry(@RequestPayload SaveEmployeeRequest request) throws java.text.ParseException{
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = LOCAL_PART)
+    public SaveEmployeeResponse saveEmployee(@RequestPayload SaveEmployeeRequest request)
+            throws java.text.ParseException {
         employeeService.save(request.getEmployee());
         SaveEmployeeResponse response = new SaveEmployeeResponse();
         response.setStatus(OK);

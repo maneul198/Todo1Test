@@ -1,6 +1,6 @@
 package com.test.soapservice.services;
 
-import com.test.soapservice.models.EmployeeEntity;
+import com.test.soapservice.models.Employee;
 import com.test.soapservice.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,15 +12,19 @@ import java.text.SimpleDateFormat;
 public class EmployeeService {
     private static final String DATE_FORMAT = "yyyy-mm-dd";
 
-    @Autowired
     private EmployeeRepository employeeRepository;
 
-    public void save(io.test.Employee employee) throws java.text.ParseException{
+    @Autowired
+    EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
+
+    public void save(io.test.Employee employee) throws java.text.ParseException {
         employeeRepository.save(buildEntity(employee));
     }
 
-    private EmployeeEntity buildEntity(io.test.Employee employee) throws java.text.ParseException{
-        EmployeeEntity employeeEntity = new EmployeeEntity();
+    private Employee buildEntity(io.test.Employee employee) throws java.text.ParseException {
+        Employee employeeEntity = new Employee();
         DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
 
         employeeEntity.setName(employee.getName());

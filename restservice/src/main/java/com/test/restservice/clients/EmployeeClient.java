@@ -16,10 +16,13 @@ import java.text.SimpleDateFormat;
 public class EmployeeClient extends WebServiceGatewaySupport {
 
     private static final Logger log = LoggerFactory.getLogger(EmployeeClient.class);
+    private static final String URI = "http://localhost:8081/ws/employees";
+    private static final String SOAP_ACTION = "http://test.io/saveEmployeeRequest";
+    private static final String DATE_FORMAT = "yyyy-mm-dd";
 
-    private Employee buildEmployee(com.test.restservice.models.Employee employee){
+    private Employee buildEmployee(com.test.restservice.models.Employee employee) {
         Employee soapEmployee = new Employee();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
         soapEmployee.setName(employee.getName());
         soapEmployee.setSurname(employee.getSurname());
         soapEmployee.setDocumentType(employee.getDocumentType());
@@ -34,18 +37,12 @@ public class EmployeeClient extends WebServiceGatewaySupport {
     }
 
     public SaveEmployeeResponse saveEmployee(com.test.restservice.models.Employee employee) {
-
         SaveEmployeeRequest request = new SaveEmployeeRequest();
-
         request.setEmployee(buildEmployee(employee));
-
         log.info("Requesting location for " + employee);
 
         SaveEmployeeResponse response = (SaveEmployeeResponse) getWebServiceTemplate()
-                .marshalSendAndReceive("http://localhost:8081/ws/employees", request,
-                        new SoapActionCallback(
-                                "http://test.io/saveEmployeeRequest"));
-
+                .marshalSendAndReceive(URI, request, new SoapActionCallback(SOAP_ACTION));
         return response;
     }
 }
