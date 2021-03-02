@@ -1,0 +1,18 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:gs="http://spring.io/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <gs:saveEmployeeRequest>
+            <gs:employee>
+                <gs:name>nombre</gs:name>
+                <gs:surname>apellido</gs:surname>
+                <gs:documentType>1</gs:documentType>
+                <gs:documentNumber>12345678</gs:documentNumber>
+                <gs:birthDay>1998-04-12</gs:birthDay>
+                <gs:hireDay>2020-04-12</gs:hireDay>
+                <gs:role>admin</gs:role>
+                <gs:salary>12345</gs:salary>
+            </gs:employee>
+        </gs:saveEmployeeRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

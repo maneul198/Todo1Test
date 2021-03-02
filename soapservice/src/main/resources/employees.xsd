@@ -1,10 +1,10 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
-           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/"
+           targetNamespace="http://spring.io/" elementFormDefault="qualified">
 
     <xs:element name="saveEmployeeRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="name" type="tns:employee"/>
+                <xs:element name="employee" type="tns:employee"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

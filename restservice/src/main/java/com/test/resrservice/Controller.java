@@ -2,25 +2,26 @@ package com.test.resrservice;
 
 import com.test.resrservice.models.Employee;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.NotBlank;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @RestController
+@Validated
 public class Controller {
 
     @GetMapping("/employee")
     public @ResponseBody
     Employee saveEmployee(
-            @RequestParam String name,
-            @RequestParam String surname,
-            @RequestParam String documentType,
-            @RequestParam String documentNumber,
-            @RequestParam String role,
-            @RequestParam String salary,
+            @RequestParam @NotBlank String name,
+            @RequestParam @NotBlank String surname,
+            @RequestParam @NotBlank String documentType,
+            @RequestParam @NotBlank String documentNumber,
+            @RequestParam @NotBlank String role,
+            @RequestParam @NotBlank String salary,
             @RequestParam(name = "birthday") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date birthDay,
             @RequestParam(name = "hireday") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date hireDay
     ) {

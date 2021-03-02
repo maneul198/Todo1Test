@@ -1,9 +1,15 @@
-package com.test.resrservice.models;
+package com.test.soapservice.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 
-public class Employee {
-
+@Entity
+public class EmployeeEntity {
+    @Id
+    @GeneratedValue
+    private long id;
     private String name;
     private String surname;
     private String documentType;
@@ -94,4 +100,6 @@ public class Employee {
     public void setAgeTime(String ageTime) {
         this.ageTime = ageTime;
     }
+
+
 }
