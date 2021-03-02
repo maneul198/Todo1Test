@@ -12,8 +12,8 @@
                 <gs:hireDay>2020-04-12</gs:hireDay>
                 <gs:role>admin</gs:role>
                 <gs:salary>12345</gs:salary>
-                <gs:age>12</gs:age>
-                <gs:hireTime>12</gs:hireTime>
+                <gs:age></gs:age>
+                <gs:hireTime></gs:hireTime>
             </gs:employee>
         </gs:saveEmployeeRequest>
     </soapenv:Body>
