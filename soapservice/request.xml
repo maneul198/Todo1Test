@@ -1,5 +1,5 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-                  xmlns:gs="http://spring.io/">
+                  xmlns:gs="http://test.io/">
     <soapenv:Header/>
     <soapenv:Body>
         <gs:saveEmployeeRequest>
@@ -12,6 +12,8 @@
                 <gs:hireDay>2020-04-12</gs:hireDay>
                 <gs:role>admin</gs:role>
                 <gs:salary>12345</gs:salary>
+                <gs:age>12</gs:age>
+                <gs:hireTime>12</gs:hireTime>
             </gs:employee>
         </gs:saveEmployeeRequest>
     </soapenv:Body>

@@ -2,13 +2,14 @@ package com.test.soapservice.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
 public class EmployeeEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String surname;
@@ -18,8 +19,8 @@ public class EmployeeEntity {
     private Date hireDay;
     private String role;
     private String salary;
+    private String birthTime;
     private String hireTime;
-    private String ageTime;
 
     public String getName() {
         return name;
@@ -85,6 +86,22 @@ public class EmployeeEntity {
         this.salary = salary;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getBirthTime() {
+        return birthTime;
+    }
+
+    public void setBirthTime(String birthTime) {
+        this.birthTime = birthTime;
+    }
+
     public String getHireTime() {
         return hireTime;
     }
@@ -92,14 +109,4 @@ public class EmployeeEntity {
     public void setHireTime(String hireTime) {
         this.hireTime = hireTime;
     }
-
-    public String getAgeTime() {
-        return ageTime;
-    }
-
-    public void setAgeTime(String ageTime) {
-        this.ageTime = ageTime;
-    }
-
-
 }

@@ -1,5 +1,5 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/"
-           targetNamespace="http://spring.io/" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://test.io/"
+           targetNamespace="http://test.io/" elementFormDefault="qualified">
 
     <xs:element name="saveEmployeeRequest">
         <xs:complexType>
@@ -27,6 +27,8 @@
             <xs:element name="hireDay" type="xs:string"/>
             <xs:element name="role" type="xs:string"/>
             <xs:element name="salary" type="xs:string"/>
+            <xs:element name="age" type="xs:string"/>
+            <xs:element name="hireTime" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 

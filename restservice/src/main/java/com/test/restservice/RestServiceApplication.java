@@ -1,4 +1,4 @@
-package com.test.resrservice;
+package com.test.restservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

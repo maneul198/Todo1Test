@@ -1,4 +1,4 @@
-package com.test.resrservice.models;
+package com.test.restservice.models;
 
 import java.util.Date;
 
@@ -13,7 +13,7 @@ public class Employee {
     private String role;
     private String salary;
     private String hireTime;
-    private String ageTime;
+    private String age;
 
     public String getName() {
         return name;
@@ -87,11 +87,11 @@ public class Employee {
         this.hireTime = hireTime;
     }
 
-    public String getAgeTime() {
-        return ageTime;
+    public String getAge() {
+        return age;
     }
 
-    public void setAgeTime(String ageTime) {
-        this.ageTime = ageTime;
+    public void setAge(String age) {
+        this.age = age;
     }
 }
